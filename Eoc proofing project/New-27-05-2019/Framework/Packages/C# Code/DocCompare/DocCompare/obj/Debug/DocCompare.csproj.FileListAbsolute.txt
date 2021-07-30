@@ -1,0 +1,4 @@
+C:\Users\Sariputi.Raja\Desktop\c3_fedex\12\DocCompare\DocCompare\bin\Debug\DocCompare.dll
+C:\Users\Sariputi.Raja\Desktop\c3_fedex\12\DocCompare\DocCompare\bin\Debug\DocCompare.pdb
+C:\Users\Sariputi.Raja\Desktop\c3_fedex\12\DocCompare\DocCompare\obj\Debug\DocCompare.dll
+C:\Users\Sariputi.Raja\Desktop\c3_fedex\12\DocCompare\DocCompare\obj\Debug\DocCompare.pdb

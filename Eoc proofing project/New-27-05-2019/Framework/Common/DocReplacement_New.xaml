@@ -1,0 +1,109 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_InputDT" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="In_WordDocPath" Type="InArgument(x:String)" />
+    <x:Property Name="In_CallingType" Type="InArgument(x:String)" />
+    <x:Property Name="In_StatusPath" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>376,1210</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Microsoft.Office.Interop.Word</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="336,1130" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dtKeyValuePair" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="OutDataTable" />
+      <Variable x:TypeArguments="x:String" Name="strValue" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log App " sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Doc Updation process start at: &quot;+DateTime.Now.ToString]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="314,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="336,183" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:BuildDataTable DataTable="[dtKeyValuePair]" DisplayName="InplutDataTable for invoke Code-Build Data Table" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;FindText&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ReplaceText&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;FindText&gt;{G_PARTD}&lt;/FindText&gt;&#xA;    &lt;ReplaceText&gt;Value1&lt;/ReplaceText&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;FindText&gt;{TRACK_O} &lt;/FindText&gt;&#xA;    &lt;ReplaceText&gt;Value2&lt;/ReplaceText&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="314,131" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// This Invoke code take input&#xA;1- Input Word file full path with file name&#xA;2- Input Datatable with &quot;FindText&quot; and &quot;ReplaceText&quot; Paramater&#xA;3- OutDataTable with column name VariableName,     ReplaceText,Status,DateTime&#xA;&#xA;" />
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim AdOC As Microsoft.Office.Interop.Word.Document&#xD;&#xA;&#xD;&#xA;Try&#xD;&#xA;Dim fileName As Object&#xD;&#xA;Dim OutputFileName As String&#xD;&#xA;Dim _blnResult As Boolean&#xD;&#xA;&#xD;&#xA;Dim _OutDataTable As New System.Data.DataTable&#xD;&#xA;_OutDataTable.Columns.Add(&quot;VariableName&quot;, GetType(String))&#xD;&#xA;_OutDataTable.Columns.Add(&quot;ReplaceText&quot;, GetType(String))&#xD;&#xA;_OutDataTable.Columns.Add(&quot;Status&quot;, GetType(String))&#xD;&#xA;_OutDataTable.Columns.Add(&quot;DateTime&quot;, GetType(String))&#xD;&#xA;_OutDataTable.Columns.Add(&quot;Comments&quot;, GetType(String))&#xD;&#xA;fileName =argInFilePath&#xD;&#xA;&#xD;&#xA;Dim wordApp As Microsoft.Office.Interop.Word.Application &#xD;&#xA;&#xD;&#xA;Dim fnd As Microsoft.Office.Interop.Word.Find&#xD;&#xA;wordApp = New Microsoft.Office.Interop.Word.Application&#xD;&#xA;aDoc = wordApp.Documents.Open(fileName)&#xD;&#xA;Dim rng  As Microsoft.Office.Interop.Word.Range  = aDoc.Content&#xD;&#xA;&#xD;&#xA;aDoc.Activate()&#xD;&#xA;Dim dtInPutDataTable As System.Data.DataTable&#xD;&#xA;dtInPutDataTable=argInDT&#xD;&#xA;Dim wrap  As Microsoft.Office.Interop.Word.WdFindWrap  = Microsoft.Office.Interop.Word.WdFindWrap.wdFindStop&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;For Each row As DataRow In dtInPutDataTable.Rows&#xD;&#xA;&#x9;_blnResult=False&#x9;&#xD;&#xA;&#x9;Dim ReplaceText As String=&quot;&quot;&#xD;&#xA;&#x9;Dim FindText As String=&quot;&quot;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;If(type.Equals(&quot;variable&quot;)) Then&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Dim FindText_var As String= &quot;{&quot;+row.Item(&quot;FindText&quot;).ToString()+&quot;}&quot;&#xD;&#xA;&#x9;&#x9;Dim FindText_var1 As String= &quot;[{&quot;+row.Item(&quot;FindText&quot;).ToString()+&quot;}]&quot;&#xD;&#xA;&#x9;&#x9;Dim FindText_var2 As String=  row.Item(&quot;FindText&quot;).ToString()&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;ReplaceText = row.Item(&quot;ReplaceText&quot;).ToString()&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;Dim oldHeaderFormat As ParagraphFormat = rng.ParagraphFormat.Duplicate&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;    _blnResult=rng.Find.Execute(FindText:=FindText_var.ToString,ReplaceWith:=ReplaceText.Trim, Replace:=Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll)&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;If(_blnResult = False) Then&#xD;&#xA;&#x9;_blnResult=rng.Find.Execute(FindText:=FindText_var1.ToString,ReplaceWith:=ReplaceText.Trim, Replace:=Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll)&#xD;&#xA;&#x9;End If&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;If(_blnResult = False) Then&#xD;&#xA;&#x9;&#x9;_blnResult=rng.Find.Execute(FindText:=FindText_var2.ToString,ReplaceWith:=ReplaceText.Trim, Replace:=Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll)&#xD;&#xA;&#x9;End If&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;rng.ParagraphFormat = oldHeaderFormat&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;Else If(type.Equals(&quot;if-else&quot;)) Then&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;FindText = row.Item(&quot;FindText&quot;).ToString()&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;With rng.Find&#xD;&#xA;&#x9;&#x9;    .Text = FindText&#xD;&#xA;&#x9;&#x9;    .Replacement.Font.Color = Microsoft.Office.Interop.Word.WdColor.wdColorBlack&#xD;&#xA;&#x9;&#x9;    .Forward = True&#xD;&#xA;&#x9;&#x9;    .Wrap = Microsoft.Office.Interop.Word.WdFindWrap.wdFindStop&#xD;&#xA;&#x9;&#x9;    .Format = True&#xD;&#xA;&#x9;&#x9;    .MatchCase = False&#xD;&#xA;&#x9;&#x9;    .MatchWholeWord = False&#xD;&#xA;&#x9;&#x9;    .MatchWildcards = False&#xD;&#xA;&#x9;&#x9;    .MatchSoundsLike = False&#xD;&#xA;&#x9;&#x9;    .MatchAllWordForms = False&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;End With&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;ReplaceText = row.Item(&quot;ReplaceText&quot;).ToString()&#xD;&#xA;&#x9;&#x9;Dim oldHeaderFormat As ParagraphFormat = rng.ParagraphFormat.Duplicate&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;_blnResult=rng.Find.Execute(ReplaceWith:=ReplaceText.ToString,Replace:=Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll)&#xD;&#xA;&#x9;&#x9;rng.ParagraphFormat = oldHeaderFormat&#xD;&#xA;  &#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;Else&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;FindText= row.Item(&quot;Conditions&quot;).ToString()&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;'.Replace(&quot;[&quot;,&quot;\[&quot;)&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Console.WriteLine(&quot;Find Text in Conditions :- &quot; +FindText)&#xD;&#xA;&#x9;&#x9;Try&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine(&quot;After Range in Conditions1 :- &quot;)&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;If(row.Item(&quot;Status&quot;) IsNot Nothing And Not(row.Item(&quot;Status&quot;).ToString.Equals(String.Empty)))&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;rng.Find.ClearFormatting&#xD;&#xA;&#x9;&#x9;&#x9;rng.Find.Replacement.ClearFormatting&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine(&quot;After Range in Conditions2 :- &quot;)&#xD;&#xA;&#x9;&#x9;With rng.Find&#xD;&#xA;&#x9;&#x9;    .Text = FindText+&quot;\[(*)\]&quot;&#xD;&#xA;&#x9;&#x9;    .Replacement.Font.Color = Microsoft.Office.Interop.Word.WdColor.wdColorBlack&#xD;&#xA;&#x9;&#x9;    .Forward = True&#xD;&#xA;&#x9;&#x9;    .Wrap = Microsoft.Office.Interop.Word.WdFindWrap.wdFindStop&#xD;&#xA;&#x9;&#x9;    .Format = True&#xD;&#xA;&#x9;&#x9;    .MatchCase = False&#xD;&#xA;&#x9;&#x9;    .MatchWholeWord = False&#xD;&#xA;&#x9;&#x9;    .MatchWildcards = True&#xD;&#xA;&#x9;&#x9;    .MatchSoundsLike = False&#xD;&#xA;&#x9;&#x9;    .MatchAllWordForms = False&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;End With&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine(&quot;After Range in Conditions3a :- &quot; +  row.Item(&quot;Status&quot;).ToString)&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine(&quot;After Range in Conditions3b :- &quot; + (Convert.ToBoolean(row.Item(&quot;Status&quot;).ToString.Trim) = False).ToString)&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;'Console.WriteLine(&quot;After Range in Conditions3 :- &quot; + row.Item(&quot;Status&quot;).ToString.Equals(&quot;FALSE&quot;))&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;If(Convert.ToBoolean(row.Item(&quot;Status&quot;).ToString.Trim) = False) Then&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Console.WriteLine(&quot;After Range in Conditions4a :- &quot;)&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Dim oldHeaderFormat As ParagraphFormat = rng.ParagraphFormat.Duplicate&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;_blnResult=rng.Find.Execute(ReplaceWith:=&quot; &quot;,Replace:=Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;rng.ParagraphFormat = oldHeaderFormat&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Console.WriteLine(&quot;After Range in Conditions4b :- &quot;)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Else If(Convert.ToBoolean(row.Item(&quot;Status&quot;).ToString.Trim) = True)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Console.WriteLine(&quot;After Range in Conditions5a :- &quot;)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Dim oldHeaderFormat As ParagraphFormat = rng.ParagraphFormat.Duplicate&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;_blnResult=rng.Find.Execute(ReplaceWith:=&quot;\1&quot;,Replace:=Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;rng.ParagraphFormat = oldHeaderFormat&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Console.WriteLine(&quot;After Range in Conditions5b :- &quot;)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Catch ex As Exception&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine(&quot;Inner Catch: &quot;+ex.ToString)&#xD;&#xA;    &#x9;&#x9;_OutDataTable.Rows.Add(FindText,&quot;&quot;,&quot;Failure&quot;,System.DateTime.Now.ToString,ex.Message.ToString+&quot;------&quot;)&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;End Try&#x9;  &#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;End If&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;If(_blnResult) Then&#xD;&#xA;&#x9;&#x9;&#x9;_OutDataTable.Rows.Add(FindText,ReplaceText,&quot;Success&quot;,System.DateTime.Now.ToString,&quot;&quot;)&#xD;&#xA;&#x9;&#x9;&#x9;Else&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;_OutDataTable.Rows.Add(FindText,ReplaceText,&quot;Failure&quot;,System.DateTime.Now.ToString,&quot;No Replacements Found&quot;)&#xD;&#xA;&#x9;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;Next row&#xD;&#xA; argOutDataTable=_OutDataTable              &#xD;&#xA;&#xD;&#xA;&#x9;Catch ex As exception&#xD;&#xA;&#x9;Console.WriteLine(&quot;Outer Catch: &quot;+ex.ToString)&#xD;&#xA;&#x9;Finally&#xD;&#xA;aDoc.Save&#xD;&#xA;aDoc.Close&#xD;&#xA;End Try&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;" DisplayName="Replace Text-Invoke Code" sap:VirtualizedContainerService.HintSize="314,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="argInDT">[In_InputDT]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="argInFilePath">[In_WordDocPath]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="argOutDataTable">[OutDataTable]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="type">[In_CallingType]</InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="314,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Doc Replacement Invoke Code ends at: &quot;+DateTime.Now.ToString]" />
+    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="CloseAll of the instance of Word-Kill Process" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="WINWORD.EXE" />
+    <ui:AppendRange DataTable="[OutDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="314,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="[In_StatusPath]" />
+    <ui:LogMessage DisplayName="Log App " sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Doc Updation process end at: &quot;+DateTime.Now.ToString]" />
+  </Sequence>
+</Activity>
